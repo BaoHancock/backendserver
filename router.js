@@ -16,7 +16,7 @@ appp.use(express.json());
 appp.listen(port,()=>{
   console.log("connected to port 3000");
 })
-appp.use(rout);
+
 
 
    
