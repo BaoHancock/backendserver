@@ -3,7 +3,7 @@ const authRouter = express.Router();
 const axios = require('axios');
 const fs = require("fs");
 const http=  require("http");
-const admin = require("./model/adminmodel");
+
 var golid='';
 const apiUrl = 'https://script.google.com/macros/s/AKfycbxEP0ffe5uCfGMK1kI9W-wOSqf4d3eDRUtjCNAHSzCS3DLWMJWyRcXUqAt7zY0QMGUg/exec';
 console.log("working");
@@ -12,15 +12,6 @@ const filePath = '../python/recognized_text.json';
 
    
   
-
-authRouter.post("/note",async(req,res)=>{
-  const {notes}=req.body;
-  console.log(notes + "here");
-  let StoreinDb = new admin({notes})
-  
-  StoreinDb = await StoreinDb.save();
-  res.json({"save":StoreinDb.notes});
-})
 
 authRouter.post("/sendtomongo",async(req,res)=>{
   const {name}= req.body;
