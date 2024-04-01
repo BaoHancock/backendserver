@@ -3,12 +3,21 @@ const authRouter = express.Router();
 const axios = require('axios');
 const fs = require("fs");
 const http=  require("http");
-
+const port = process.env.PORT ||3000;
 var golid='';
 const apiUrl = 'https://script.google.com/macros/s/AKfycbxEP0ffe5uCfGMK1kI9W-wOSqf4d3eDRUtjCNAHSzCS3DLWMJWyRcXUqAt7zY0QMGUg/exec';
 console.log("working");
 //google sheets
 const filePath = '../python/recognized_text.json';
+const appp = express();
+appp.use(express.json());
+   
+  // Read the JSON file
+appp.listen(port,()=>{
+  console.log("connected to port 3000");
+})
+appp.use(rout);
+
 
    
   
