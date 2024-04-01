@@ -22,12 +22,12 @@ appp.listen(port,()=>{
    
   
 
-authRouter.post("/sendtomongo",async(req,res)=>{
+appp.post("/sendtomongo",async(req,res)=>{
   const {name}= req.body;
   console.log(name);
   res.json({"ok":"sended"});
   })
-  authRouter.get('/getData', async (req, res) => {
+appp.get('/getData', async (req, res) => {
     try {
       const data = await admin.find();
       res.json(data);
@@ -37,11 +37,10 @@ authRouter.post("/sendtomongo",async(req,res)=>{
     }
   });
 
-  
-  authRouter.post('/')
+appp.post('/')
 
 
-  authRouter.post("/attendaceslide",async(req,res)=>{
+  appp.post("/attendaceslide",async(req,res)=>{
   const task=req.body;
    
   console.log(task.task);
@@ -92,11 +91,11 @@ console.log(keys1);
             
             }
           }
-          authRouter.get("/increaseornot",(req,res)=>{
+          appp.get("/increaseornot",(req,res)=>{
             console.log
             res.send(g1);
           })
-          authRouter.get("/studentfound",(req,res)=>{
+          appp.get("/studentfound",(req,res)=>{
             console.log([])
             res.send(detailstudentfound);
           })
