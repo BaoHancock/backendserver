@@ -3,8 +3,9 @@ const authRouter = express.Router();
 const axios = require('axios');
 const fs = require("fs");
 const http=  require("http");
-const port = process.env.PORT ||3000;
+
 var golid='';
+const port = process.env.PORT ||3000;
 const apiUrl = 'https://script.google.com/macros/s/AKfycbxEP0ffe5uCfGMK1kI9W-wOSqf4d3eDRUtjCNAHSzCS3DLWMJWyRcXUqAt7zY0QMGUg/exec';
 console.log("working");
 //google sheets
@@ -19,28 +20,30 @@ appp.listen(port,()=>{
 
 
 
-   
+
+// appp.post("/note",async(req,res)=>{
+//   const {notes}=req.body;
+//   console.log(notes + "here");
+//   let StoreinDb = new admin({notes})
   
+//   StoreinDb = await StoreinDb.save();
+//   res.json({"save":StoreinDb.notes});
+// })
 
 appp.post("/sendtomongo",async(req,res)=>{
-  const {name}= req.body;
-  console.log(name);
-  res.json({"ok":"sended"});
+  console.log( req.body);
+  
+  res.json(req.body);
   })
-appp.get('/getData', async (req, res) => {
-    try {
-      const data = await admin.find();
-      res.json(data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      res.status(500).json({ error: 'Internal server error' });
-    }
-  });
 
-appp.post('/')
+  
+  appp.get('https://newsapi.org/v2/top-headlines?country=in&apiKey=a67755c95295427492617780825e001d',async(req,res)=>{
+    res.json();
+    
+  })
 
 
-  appp.post("/attendaceslide",async(req,res)=>{
+  authRouter.post("/attendaceslide",async(req,res)=>{
   const task=req.body;
    
   console.log(task.task);
@@ -91,11 +94,11 @@ console.log(keys1);
             
             }
           }
-          appp.get("/increaseornot",(req,res)=>{
+          authRouter.get("/increaseornot",(req,res)=>{
             console.log
             res.send(g1);
           })
-          appp.get("/studentfound",(req,res)=>{
+          authRouter.get("/studentfound",(req,res)=>{
             console.log([])
             res.send(detailstudentfound);
           })
